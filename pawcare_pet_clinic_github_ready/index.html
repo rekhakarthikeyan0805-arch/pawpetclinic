@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PawCare Pet Clinic - friendly veterinary care and online appointments.">
+  <title>PawCare Pet Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home"><span class="brand-paw">🐾</span> PawCare <small>Pet Clinic</small></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#book">Book Appointment</a>
+      <a href="#appointments">My Appointments</a>
+      <a href="#about">About</a>
+      <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+      <a href="#admin" class="admin-link">Admin</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">COMPASSIONATE CARE • HAPPY PETS</span>
+        <h1>Better care for the pets you <span>love.</span></h1>
+        <p>Friendly veterinary care, preventive wellness and emergency support — all in one comfortable place for your best friend.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#book">Book Appointment →</a>
+          <a class="btn btn-secondary" href="#services">Explore Services</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>10+</strong><span>Years of care</span></div>
+          <div><strong>6k+</strong><span>Happy pets</span></div>
+          <div><strong>24/7</strong><span>Emergency support</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="blob"></div>
+        <div class="pet-card cat">🐱</div>
+        <div class="pet-card dog">🐶</div>
+        <div class="floating-note">💚 Gentle care, every visit</div>
+      </div>
+    </section>
+
+    <section class="highlights section compact">
+      <div class="highlight"><span>🩺</span><div><h3>Experienced Vets</h3><p>Qualified professionals who treat every pet like family.</p></div></div>
+      <div class="highlight"><span>🚑</span><div><h3>Emergency Care</h3><p>Urgent support when your companion needs us most.</p></div></div>
+      <div class="highlight"><span>💉</span><div><h3>Vaccinations</h3><p>Simple preventive care to keep your pet protected.</p></div></div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="section-head"><div><span class="eyebrow">WHAT WE DO</span><h2>Complete care under one roof</h2></div><p>From routine wellness to specialized treatment, our team is here for every stage of your pet's life.</p></div>
+      <div id="servicesGrid" class="card-grid"></div>
+    </section>
+
+    <section id="doctors" class="section soft-bg">
+      <div class="section-head"><div><span class="eyebrow">OUR TEAM</span><h2>Meet our caring veterinarians</h2></div><p>Experienced doctors focused on calm visits and clear communication.</p></div>
+      <div id="doctorsGrid" class="doctor-grid"></div>
+    </section>
+
+    <section id="book" class="section">
+      <div class="section-head centered"><span class="eyebrow">ONLINE BOOKING</span><h2>Book your pet's visit</h2><p>Choose a service, doctor and available time. Your booking is stored safely in this demo browser.</p></div>
+      <div class="booking-layout">
+        <form id="appointmentForm" class="form-card">
+          <div class="form-row">
+            <label>Owner name *<input id="ownerName" required placeholder="Your full name"></label>
+            <label>Phone *<input id="phone" required inputmode="tel" placeholder="10-digit phone number"></label>
+          </div>
+          <div class="form-row">
+            <label>Email *<input id="email" type="email" required placeholder="you@example.com"></label>
+            <label>Pet name *<input id="petName" required placeholder="Pet's name"></label>
+          </div>
+          <div class="form-row">
+            <label>Pet type *
+              <select id="petType" required><option value="">Select type</option><option>Dog</option><option>Cat</option><option>Bird</option><option>Other</option></select>
+            </label>
+            <label>Breed *<input id="breed" required placeholder="e.g. Labrador"></label>
+          </div>
+          <div class="form-row">
+            <label>Age *<input id="age" type="number" min="0" max="40" required placeholder="Years"></label>
+            <label>Service *
+              <select id="service" required><option value="">Select service</option></select>
+            </label>
+          </div>
+          <div class="form-row">
+            <label>Preferred doctor *
+              <select id="doctor" required><option value="">Select doctor</option></select>
+            </label>
+            <label>Date *<input id="date" type="date" required></label>
+          </div>
+          <label>Available time slot *
+            <select id="time" required disabled><option value="">Choose doctor and date first</option></select>
+          </label>
+          <label>Notes <textarea id="notes" rows="4" placeholder="Tell us anything important about your pet..."></textarea></label>
+          <button class="btn btn-primary full" type="submit">Confirm Appointment</button>
+          <p class="form-hint">🔒 Demo mode: data is saved in your browser using localStorage.</p>
+        </form>
+        <aside class="booking-side">
+          <div class="info-card"><span class="big-icon">📅</span><h3>Easy scheduling</h3><p>See only the time slots that are still available for your selected doctor and date.</p></div>
+          <div class="info-card"><span class="big-icon">💬</span><h3>Confirmation placeholder</h3><p>In a production backend, this step can trigger email or SMS confirmation automatically.</p></div>
+        </aside>
+      </div>
+      <div id="confirmation" class="confirmation hidden"></div>
+    </section>
+
+    <section id="appointments" class="section soft-bg">
+      <div class="section-head centered"><span class="eyebrow">YOUR BOOKINGS</span><h2>My Appointments</h2><p>Enter the phone number used during booking to view your appointments.</p></div>
+      <div class="lookup-card">
+        <div class="lookup-row"><input id="lookupPhone" inputmode="tel" placeholder="Enter phone number"><button id="lookupBtn" class="btn btn-primary">Find Appointments</button></div>
+        <div id="appointmentsResult"></div>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <div class="section-head centered"><span class="eyebrow">PET PARENTS SAY</span><h2>Kind words from our clients</h2></div>
+      <div class="testimonial-grid">
+        <article class="quote"><div class="stars">★★★★★</div><p>“The booking was simple and the team made our first puppy visit feel completely stress-free.”</p><strong>— Ananya & Bruno</strong></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>“Dr. Priya explained everything clearly. We finally have a routine vaccination plan.”</p><strong>— Rahul & Milo</strong></article>
+        <article class="quote"><div class="stars">★★★★★</div><p>“Clean clinic, friendly staff and very gentle handling. Highly recommended.”</p><strong>— Meera & Coco</strong></article>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="section-head centered"><span class="eyebrow">FAQ</span><h2>Questions, answered</h2></div>
+      <div class="faq-list">
+        <details><summary>Can I reschedule an appointment?</summary><p>Yes. Use My Appointments, find the booking with your phone number, and choose Reschedule.</p></details>
+        <details><summary>What happens if I need urgent care?</summary><p>Call the clinic directly. The emergency service is intended for urgent cases and the demo booking form also supports emergency-care appointments.</p></details>
+        <details><summary>Can I book for cats and birds?</summary><p>Yes. Select Dog, Cat, Bird or Other in the pet type field.</p></details>
+        <details><summary>Is this connected to a real database?</summary><p>This version uses localStorage so it works without a server. It is structured so a Node/Express + MongoDB API can replace the storage layer later.</p></details>
+      </div>
+    </section>
+
+    <section id="about" class="section about soft-bg">
+      <div class="about-copy"><span class="eyebrow">ABOUT PAWCARE</span><h2>A clinic built around calm, honest care.</h2><p>We believe veterinary visits should feel welcoming for both pets and their people. Our clinic combines preventive care, diagnostics, grooming and treatment with patient, practical guidance.</p><div class="about-points"><span>✓ Transparent care plans</span><span>✓ Modern treatment rooms</span><span>✓ Pet-friendly approach</span></div></div>
+      <div id="contact" class="contact-card"><h3>Contact us</h3><p>📍 24 Green Park Road, Chennai, Tamil Nadu</p><p>📞 +91 98765 43210</p><p>✉️ hello@pawcare.example</p><p>🕒 Mon–Sat: 9:00 AM – 8:00 PM</p><div class="map-placeholder">🗺️<br><span>Map placeholder</span></div><a class="btn whatsapp" href="https://wa.me/919876543210" target="_blank" rel="noopener">💬 WhatsApp Us</a></div>
+    </section>
+
+    <section id="admin" class="section admin-section">
+      <div class="section-head centered"><span class="eyebrow">STAFF AREA</span><h2>Admin panel</h2><p>Demo login and local appointment management.</p></div>
+      <div id="adminLogin" class="admin-login">
+        <input id="adminUser" placeholder="Username" value="admin">
+        <input id="adminPass" type="password" placeholder="Password">
+        <button id="adminLoginBtn" class="btn btn-primary">Login</button>
+        <small>Demo credentials: admin / admin123</small>
+      </div>
+      <div id="adminPanel" class="hidden">
+        <div class="admin-toolbar">
+          <select id="filterDoctor"><option value="">All doctors</option></select>
+          <select id="filterStatus"><option value="">All statuses</option><option>Pending</option><option>Approved</option><option>Rejected</option><option>Completed</option><option>Cancelled</option></select>
+          <input id="filterDate" type="date">
+          <button id="logoutAdmin" class="btn btn-secondary">Logout</button>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Pet / Owner</th><th>Doctor</th><th>Date</th><th>Time</th><th>Service</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminTable"></tbody></table></div>
+        <div class="admin-edit-grid">
+          <div class="mini-card"><h3>Doctors</h3><p>Add/edit functionality is demo-ready through browser storage.</p><button id="addDoctorBtn" class="btn btn-secondary">Add Doctor</button></div>
+          <div class="mini-card"><h3>Services</h3><p>Service definitions are stored in the JavaScript data layer and can be connected to an API.</p><button id="addServiceBtn" class="btn btn-secondary">Add Service</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div><a class="brand" href="#home"><span>🐾</span> PawCare</a><p>Gentle care. Healthier pets. Happier families.</p></div><div><strong>Quick links</strong><a href="#book">Book</a><a href="#services">Services</a><a href="#contact">Contact</a></div><div><strong>Emergency</strong><p>Call +91 98765 43210</p><p>Available 24/7 for urgent cases</p></div></footer>
+  <div class="copyright">© 2026 PawCare Pet Clinic • Demo project for GitHub</div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
